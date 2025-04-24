@@ -3,6 +3,9 @@ import './bootstrap';
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
 
+import { ThemeProvider } from '@mui/material';
+import theme from '../themes/theme';
+
 createInertiaApp({
     resolve: async (name) => {
       const pages = import.meta.glob('./Pages/**/*.jsx', { eager: true });
@@ -15,6 +18,10 @@ createInertiaApp({
       return page;
     },
     setup({ el, App, props }) {
-      createRoot(el).render(<App {...props} />)
+      createRoot(el).render(
+        <ThemeProvider theme={theme}>
+          <App {...props} />
+        </ThemeProvider>
+      )
     },
   })
