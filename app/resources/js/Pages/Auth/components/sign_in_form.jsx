@@ -2,21 +2,19 @@ import { Box, TextField, Button } from "@mui/material"
 
 import CheckBox from "./checkbox"
 
-export default function SignInForm() {
+export default function SignInForm({action}) {
   return <Box 
     component="form" 
-    action="#"
-    sx={{
+    action={action}
+    sx={theme => ({
       display: "flex",
       flexDirection: 'column',
-      rowGap: 1
-    }}
+      rowGap: theme.space.s2
+    })}
   >
-    <TextField id="outlined-basic" label="Email" variant="outlined" />
-    <TextField id="outlined-basic" label="Password" variant="outlined" />
-    <Box>
-      <CheckBox label={'Remember Me'}/>
-    </Box>
+    <TextField id="outlined-1" type="email" label="Email" variant="outlined" error={false} helperText={''}/>
+    <TextField id="outlined-2" type="password" label="Password" variant="outlined" error={false} helperText={''}/>
+    <CheckBox label={'Remember Me'}/>
     <Button variant="contained">
       Sign In
     </Button>

@@ -1,81 +1,93 @@
-import { Box, Grid, Typography, TextField, Button } from "@mui/material"
+import { 
+	Box, 
+	Grid, 
+	Typography, 
+	Button, 
+	Paper, 
+	Divider,
+	useTheme, 
+	useMediaQuery
+} from "@mui/material"
 
 import { Link } from "@inertiajs/react"
 
 import Logo from "./components/logo"
 import SignInForm from "./components/sign_in_form"
 import GoogleIcon from "./components/google_icon"
+import ForgotPassword from "./components/forgot_password"
 
 export default function Login() {
+	const theme = useTheme();
+	const isSm = useMediaQuery(theme.breakpoints.up('sm'));
+
 	return <Box sx={{
 		height: '100vh',
 	}}>
 		<Grid 
 			container 
-			spacing={2}
 			sx={{
 				justifyContent: 'center',
 				alignItems: 'center',
 				height: '100%',
 			}}
 		>
-			<Grid 
-				size={4}
-			>
-				<Box
-					sx={{
+			<Grid size={{ xs: 12, sm: 6, md: 4 }} >
+				<Paper
+					sx={(theme)=>({
 						display: "flex",
 						flexDirection: 'column',
-						rowGap: 1,
-					}}
+						rowGap: theme.space.s1,
+						p: {
+							xs: theme.space.s2,
+							sm: theme.space.s3
+						},
+						my: {
+							sm: theme.space.s3
+						},
+						borderRadius: {
+							sm: theme.radius.r2
+						}
+					})}
+					
+					variant={isSm ? 'outlined' : 'elevation'}
+					elevation={0}
 				>
 					<Logo/>
 					<Typography variant="h3">
 						Sign In
 					</Typography>
-					<SignInForm/>
-					<Link 
-						href={'#'} 
-						style={{ 
-							textDecorationLine: 'none',
-							textAlign: 'center' 
-						}}>
-						<Typography color="primary" variant="body1">
-							Forgot password?
+					<SignInForm action={'#!'}/>
+					<ForgotPassword href={'#!'} />
+					<Divider flexItem>
+						<Typography variant="body2">
+							or
 						</Typography>
-					</Link>
-					<Box sx={{
-						display: 'flex',
-						alignItems: 'center'
-					}}>
-						<Box sx={{ flexGrow: '1' }}> <hr /> </Box>
-						<Box sx={{ mx: 0.5 }}>
-							<Typography variant="body2">
-								or
-							</Typography>
-						</Box>
-						<Box sx={{ flexGrow: '1' }}> <hr /> </Box>
-					</Box>
-					<Box>
+					</Divider>
+					<Link href={'#!'}>
 						<Button 
 							variant="outlined" 
-							sx={{ width: '100%', display: "inline-flex", columnGap: 1, alignItems: "center" }}
+							sx={theme => ({ 
+								width: '100%', 
+								display: "inline-flex", 
+								columnGap: theme.space.s1, 
+								alignItems: "center" 
+							})}
 						>
 							<GoogleIcon/>
 							Sign in with Google
 						</Button>
-					</Box>
-					<Box sx={{ display: 'flex', justifyContent: "center", columnGap: 0.5 }}>
+					</Link>
+					<Box sx={theme => ({ display: 'flex', justifyContent: "center", columnGap: theme.space.s0_5 })}>
 						<Typography>
 							Dont have an account?
 						</Typography>
-						<Link href='#' style={{ textDecorationLine: 'none', }}>
+						<Link href='#!' style={{ textDecorationLine: 'none', }}>
 							<Typography color="primary" variant="body1">
 								Sign Up
 							</Typography>
 						</Link>
 					</Box>
-				</Box>
+				</Paper>
 			</Grid>
 		</Grid>
 	</Box>
