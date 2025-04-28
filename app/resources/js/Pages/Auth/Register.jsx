@@ -12,11 +12,11 @@ import {
 import { Link } from "@inertiajs/react"
 
 import Logo from "./components/logo"
-import SignInForm from "./components/sign_in_form"
+import RegisterForm from "./components/register_form"
 import GoogleIcon from "./components/google_icon"
 import ForgotPassword from "./components/forgot_password"
 
-export default function Login() {
+export default function Register() {
 	const theme = useTheme();
 	const isSm = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -54,10 +54,9 @@ export default function Login() {
 				>
 					<Logo/>
 					<Typography variant="h3" sx={theme => ({ mb: theme.space.s1_5 })}>
-						Sign In
+						Register
 					</Typography>
-					<SignInForm action={'#!'}/>
-					<ForgotPassword href={'#!'} />
+					<RegisterForm action={'#!'}/>
 					<Divider flexItem>
 						<Typography variant="body2">
 							or
@@ -74,16 +73,16 @@ export default function Login() {
 							})}
 						>
 							<GoogleIcon/>
-							Sign in with Google
+							Register with Google
 						</Button>
 					</Link>
 					<Box sx={theme => ({ display: 'flex', justifyContent: "center", columnGap: theme.space.s0_5 })}>
 						<Typography>
-							Dont have an account?
+							Already have an account?
 						</Typography>
-						<Link href={route('register')} style={{ textDecorationLine: 'none', }}>
+						<Link href={route('login')} style={{ textDecorationLine: 'none', }}>
 							<Typography color="primary" variant="body1">
-								Sign Up
+								Log in
 							</Typography>
 						</Link>
 					</Box>
