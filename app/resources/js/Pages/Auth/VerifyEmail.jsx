@@ -10,7 +10,7 @@ import {
 
 import { Link } from "@inertiajs/react";
 
-import Logo from "./components/logo"
+import Logo from "../../components/logo"
 
 export default function VerifyEmail() {
 	const theme = useTheme();

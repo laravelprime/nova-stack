@@ -40,11 +40,11 @@ const theme = createTheme({
     },
     h5: {
       fontFamily: displayFont,
-      fontWeight: 500
+      fontWeight: 600
     },
     h6: {
       fontFamily: displayFont,
-      fontWeight: 400
+      fontWeight: 600
     },
     logo: {
       fontFamily: ["Lobster", 'sans-serif'].join(','),

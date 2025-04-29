@@ -3,8 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
+Route::get('/typography', function () {
     return Inertia::render('Welcome');
+});
+
+Route::get('/', function () {
+    return Inertia::render('Guest/LandingPage');
+});
+
+Route::get('/davdev', function () {
+    return Inertia::render('Guest/LandingPageDev');
 });
 
 Route::get('/login', function () {

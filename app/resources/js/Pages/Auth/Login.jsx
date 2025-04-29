@@ -11,7 +11,7 @@ import {
 
 import { Link } from "@inertiajs/react"
 
-import Logo from "./components/logo"
+import Logo from "../../components/logo"
 import SignInForm from "./components/sign_in_form"
 import GoogleIcon from "./components/google_icon"
 import ForgotPassword from "./components/forgot_password"
